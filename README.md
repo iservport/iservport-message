@@ -5,6 +5,7 @@ The message is defined as:
 
 
 | Field Name | Type  | Default | 
+| --- | ---  | --- | 
 | subject | String | | 
 | senderEmail | String | | 
 | senderName | String | | 
