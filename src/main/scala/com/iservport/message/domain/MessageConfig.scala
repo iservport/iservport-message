@@ -15,6 +15,8 @@ case class MessageConfig
  , actionCaption: String = "Use this button"
  , fallBack: String = "Otherwise"
  , trailingInfo: String = ""
+ , sentByText: String = "Sent by "
  , disclaimer: String = ""
- , unsubscribe: String = ""
- , cancelSubscription: String = "unsubscribe")
+ , unsubscribeText: String = "If you do not want to receive messages like this one, please "
+ , unsubscribeCaption: String = "unsubscribe"
+ , unsubscribeService: String = "unsubscribe")

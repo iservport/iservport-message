@@ -34,8 +34,13 @@ case class Message
     , "${callBackUri}" -> s"${apiLocation}/${servicePath}"
     , "${greeting}" -> config.greeting
     , "${procedure}" -> config.procedure
-    , "${actionCaption}" -> config.actionCaption
     , "${fallBack}" -> config.fallBack
+    , "${sentByText}" -> config.sentByText
+    , "${senderAddress}" -> sender.address
+    , "${disclaimer}" -> config.disclaimer
+    , "${unsubscribeText}" -> config.unsubscribeText
+    , "${unsubscribeCaption}" -> config.unsubscribeCaption
+    , "${unsubscribeUri}" -> s"${apiLocation}/${config.unsubscribeService}"
   )
 
   val getBody = s"${apiLocation}/static/template/${template}?logId=${id}"
