@@ -5,9 +5,10 @@ package com.iservport.message.domain
   */
 case class MessageConfig
 (subject: String
- , apiUrl: String = "/localhost:8443"
  , title: String = "Title"
- , callBackUri: String = "localhost"
+ , apiHost: String = "localhost"
+ , apiPort: Int = 8443
+ , apiScheme: String = "https://"
  , onlineCaption: String = "See on-line"
  , greeting: String = "Hello, "
  , procedure: String = "Please, do something."

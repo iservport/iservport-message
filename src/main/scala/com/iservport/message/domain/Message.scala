@@ -5,6 +5,7 @@ import java.util.UUID
 case class Message
 ( sender: ContactData
 , recipient: ContactData
+, servicePath: String
 , config: MessageConfig = MessageConfig("")) {
 
   val id = UUID.randomUUID().toString.replaceAll("-", "")
@@ -15,12 +16,14 @@ case class Message
 
   val getSenderName = sender.contactName
 
+  val apiLocation = s"${config.apiScheme}${config.apiHost}:${config.apiPort}"
+
   val headers: Map[String, String] = Map("template_id" -> template
     , "${recipientEmail}" -> recipient.contactEmail
     , "${title}" -> config.title
     , "${recipientFirstName}" -> recipient.contactName
     , "${entityName}" -> recipient.entityName
-    , "${callBackUri}" -> config.callBackUri
+    , "${callBackUri}" -> s"${apiLocation}/${servicePath}"
     , "${greeting}" -> config.greeting
     , "${procedure}" -> config.procedure
     , "${actionCaption}" -> config.actionCaption
@@ -28,7 +31,7 @@ case class Message
     , "${fallBack}" -> config.fallBack
   )
 
-  val getBody = s"${config.apiUrl}/static/template/${template}?logId=${id}"
+  val getBody = s"${apiLocation}/static/template/${template}?logId=${id}"
 
 }
 
