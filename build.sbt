@@ -8,20 +8,17 @@ lazy val root = (project in file("."))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "iservport-message",
-    version := "1.0.0.RELEASE",
+    version := "1.1.0.RELEASE",
     libraryDependencies ++= Seq(
-      "com.typesafe"        % "config" % "1.3.0",
-      "org.scalatest"      %% "scalatest"        % "3.0.0"   % "test",
-      "org.mockito"         % "mockito-all"      % "1.10.19" % "test",
-      "org.slf4j" % "slf4j-simple" % "1.7.14"
+      "org.scalatest" %% "scalatest"   % "3.0.0"   % "test"
     )
   )
   .settings(commonSettings)
 
 lazy val commonSettings = Seq(
   resolvers in ThisBuild ++= Seq(
-    "Helianto Releases"  at "s3://maven.helianto.org/release",
-    "Helianto Snapshots" at "s3://maven.helianto.org/snapshot",
+    "Helianto Releases"    at "s3://maven.helianto.org/release",
+    "Helianto Snapshots"   at "s3://maven.helianto.org/snapshot",
     "Helianto Development" at "s3://maven.helianto.org/devel"
   ),
   publishTo in ThisBuild := {
@@ -29,7 +26,7 @@ lazy val commonSettings = Seq(
     if (version.value.trim.endsWith("SNAPSHOT"))
       Some("Helianto Snapshots" at helianto + "snapshot")
     else if (version.value.trim.endsWith("RELEASE"))
-      Some("Helianto Snapshots" at helianto + "release")
+      Some("Helianto Releases" at helianto + "release")
     else
       Some("Helianto Development"  at helianto + "devel")
   },
