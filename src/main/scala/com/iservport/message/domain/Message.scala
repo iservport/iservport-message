@@ -1,9 +1,13 @@
 package com.iservport.message.domain
 
+import java.util.UUID
+
 case class Message
 ( sender: ContactData
 , recipient: ContactData
 , config: MessageConfig = MessageConfig("")) {
+
+  val id = UUID.randomUUID().toString.replaceAll("-", "")
 
   val template = "4853b17b-e5f2-4b8f-b313-7067088fb3c5"
 
@@ -23,6 +27,8 @@ case class Message
     , "${actionUri}" -> config.actionUri
     , "${fallBack}" -> config.fallBack
   )
+
+  val getBody = s"${config.apiUrl}/static/template/${template}?logId=${id}"
 
 }
 

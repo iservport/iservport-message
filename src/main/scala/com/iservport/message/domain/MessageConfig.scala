@@ -5,6 +5,7 @@ package com.iservport.message.domain
   */
 case class MessageConfig
 (subject: String
+ , apiUrl: String = "/localhost:8443"
  , title: String = "Title"
  , callBackUri: String = "localhost"
  , onlineCaption: String = "See on-line"

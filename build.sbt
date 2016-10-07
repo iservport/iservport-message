@@ -8,7 +8,7 @@ lazy val root = (project in file("."))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "iservport-message",
-    version := "1.1.0.RELEASE",
+    version := "1.1.1.RELEASE",
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest"   % "3.0.0"   % "test"
     )
