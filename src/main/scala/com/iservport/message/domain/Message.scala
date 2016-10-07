@@ -35,7 +35,6 @@ case class Message
     , "${greeting}" -> config.greeting
     , "${procedure}" -> config.procedure
     , "${actionCaption}" -> config.actionCaption
-    , "${actionUri}" -> config.actionUri
     , "${fallBack}" -> config.fallBack
   )
 
