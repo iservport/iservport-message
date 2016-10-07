@@ -2,6 +2,14 @@ package com.iservport.message.domain
 
 import java.util.UUID
 
+/**
+  * Message domain.
+  *
+  * @param sender
+  * @param recipient
+  * @param servicePath
+  * @param config
+  */
 case class Message
 ( sender: ContactData
 , recipient: ContactData

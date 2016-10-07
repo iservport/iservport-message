@@ -1,7 +1,7 @@
 package com.iservport.message.domain
 
 /**
-  * Created by mauriciofernandesdecastro on 06/10/16.
+  * Message configuration
   */
 case class MessageConfig
 (subject: String
@@ -13,6 +13,8 @@ case class MessageConfig
  , greeting: String = "Hello, "
  , procedure: String = "Please, do something."
  , actionCaption: String = "Use this button"
- , actionUri: String = "localhost/doit"
  , fallBack: String = "Otherwise"
- , trailingInfo: String = "")
+ , trailingInfo: String = ""
+ , disclaimer: String = ""
+ , unsubscribe: String = ""
+ , cancelSubscription: String = "unsubscribe")
