@@ -27,6 +27,8 @@ case class Message
   val getSenderName = sender.contactName
 
   val headers: Map[String, String] = Map("template_id" -> template
+    , "${senderEmail}" -> sender.contactEmail
+    , "${senderName}" -> sender.contactName
     , "${senderImageUrl}" -> sender.imageUrl
     , "${recipientEmail}" -> recipient.contactEmail
     , "${title}" -> config.title
