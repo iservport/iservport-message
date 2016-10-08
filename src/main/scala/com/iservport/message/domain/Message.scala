@@ -9,12 +9,14 @@ import java.util.UUID
   * @param recipient
   * @param servicePath
   * @param config
+  * @param defaults
   */
 case class Message
 ( sender: ContactData
 , recipient: ContactData
 , servicePath: String
-, config: MessageConfig = MessageConfig("")) {
+, config: MessageConfig = MessageConfig()
+, defaults: MessageDefaults = MessageDefaults()) {
 
   val id = UUID.randomUUID().toString.replaceAll("-", "")
 
@@ -24,26 +26,29 @@ case class Message
 
   val getSenderName = sender.contactName
 
-  val apiLocation = s"${config.apiScheme}${config.apiHost}:${config.apiPort}"
-
   val headers: Map[String, String] = Map("template_id" -> template
+    , "${senderImageUrl}" -> sender.imageUrl
     , "${recipientEmail}" -> recipient.contactEmail
     , "${title}" -> config.title
     , "${recipientFirstName}" -> recipient.contactName
     , "${entityName}" -> recipient.entityName
-    , "${callBackUri}" -> s"${apiLocation}/${servicePath}"
-    , "${greeting}" -> config.greeting
+    , "${greeting}" -> defaults.greeting
     , "${procedure}" -> config.procedure
+    , "${callToAction}" -> config.procedure
     , "${fallBack}" -> config.fallBack
-    , "${sentByText}" -> config.sentByText
+    , "${callBackUri}" -> s"${defaults.apiHome}/${servicePath}"
+    , "${seeOnline}" -> defaults.seeOnline
+    , "${sentByText}" -> defaults.sentByText
     , "${senderAddress}" -> sender.address
-    , "${disclaimer}" -> config.disclaimer
-    , "${unsubscribeText}" -> config.unsubscribeText
-    , "${unsubscribeCaption}" -> config.unsubscribeCaption
-    , "${unsubscribeUri}" -> s"${apiLocation}/${config.unsubscribeService}"
+    , "${disclaimer}" -> defaults.disclaimer
+    , "${unsubscribeText}" -> defaults.unsubscribeText
+    , "${unsubscribeCaption}" -> defaults.unsubscribeCaption
+    , "${unsubscribeUri}" -> s"${defaults.apiHome}/${defaults.unsubscribeService}"
+    , "${ensure}" -> defaults.ensure
+    , "${copyright}" -> defaults.copyright
   )
 
-  val getBody = s"${apiLocation}/static/template/${template}?logId=${id}"
+  val getBody = s"${defaults.apiHome}/static/template/${template}?logId=${id}"
 
 }
 
