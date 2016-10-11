@@ -1,5 +1,7 @@
 package com.iservport.message.domain
 
+import scala.beans.BeanProperty
+
 /**
   * Contact data.
   *
@@ -9,4 +11,9 @@ package com.iservport.message.domain
   * @param imageUrl
   * @param address
   */
-case class ContactData(contactEmail: String, contactName: String, entityName: String = "", imageUrl: String = "", address: String = "")
+case class ContactData
+(@BeanProperty contactEmail: String
+ , @BeanProperty contactName: String
+ , @BeanProperty entityName: String = ""
+ , @BeanProperty imageUrl: String = ""
+ , @BeanProperty address: String = "")

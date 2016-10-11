@@ -1,13 +1,15 @@
 package com.iservport.message.domain
 
+import scala.beans.BeanProperty
+
 /**
   * Message configuration
   */
 case class MessageConfig
-(subject: String = ""
- , title: String = ""
- , procedure: String = ""
- , callToAction: String = ""
- , fallBack: String = ""
- , trailingInfo: String = ""
+( @BeanProperty subject: String = ""
+ , @BeanProperty title: String = ""
+ , @BeanProperty procedure: String = ""
+ , @BeanProperty callToAction: String = ""
+ , @BeanProperty fallBack: String = ""
+ , @BeanProperty trailingInfo: String = ""
 )

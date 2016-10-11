@@ -2,6 +2,8 @@ package com.iservport.message.domain
 
 import java.util.UUID
 
+import scala.beans.BeanProperty
+
 /**
   * Message domain.
   *
@@ -12,15 +14,15 @@ import java.util.UUID
   * @param defaults
   */
 case class Message
-( sender: ContactData
-, recipient: ContactData
-, servicePath: String
-, config: MessageConfig = MessageConfig()
-, defaults: MessageDefaults = MessageDefaults()) {
+( @BeanProperty sender: ContactData
+, @BeanProperty recipient: ContactData
+, @BeanProperty servicePath: String
+, @BeanProperty config: MessageConfig = MessageConfig()
+, @BeanProperty defaults: MessageDefaults = MessageDefaults()) {
+
+  @BeanProperty val template = "4853b17b-e5f2-4b8f-b313-7067088fb3c5"
 
   val id = UUID.randomUUID().toString.replaceAll("-", "")
-
-  val template = "4853b17b-e5f2-4b8f-b313-7067088fb3c5"
 
   val getSenderEmail = sender.contactEmail
 

@@ -1,17 +1,19 @@
 package com.iservport.message.domain
 
+import scala.beans.BeanProperty
+
 /**
   * Message defaults.
   */
 case class MessageDefaults
-(greeting: String = "Hello, "
- , apiHome: String = "https://localhost:8443"
- , seeOnline: String = "See on-line"
- , sentByText: String = "Sent by "
- , disclaimer: String = ""
- , unsubscribeText: String = ""
- , unsubscribeCaption: String = ""
- , unsubscribeService: String = "unsubscribe"
- , ensure: String = ""
- , copyright: String = ""
+(@BeanProperty greeting: String = "Hello, "
+ , @BeanProperty apiHome: String = "https://localhost:8443"
+ , @BeanProperty seeOnline: String = "See on-line"
+ , @BeanProperty sentByText: String = "Sent by "
+ , @BeanProperty disclaimer: String = ""
+ , @BeanProperty unsubscribeText: String = ""
+ , @BeanProperty unsubscribeCaption: String = ""
+ , @BeanProperty unsubscribeService: String = "unsubscribe"
+ , @BeanProperty ensure: String = ""
+ , @BeanProperty copyright: String = ""
 )
