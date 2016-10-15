@@ -22,6 +22,10 @@ case class Message
 
   @BeanProperty val template = "4853b17b-e5f2-4b8f-b313-7067088fb3c5"
 
+  @BeanProperty val attachments = new java.util.ArrayList[MessageAttachment]()
+
+  def add(attachment: MessageAttachment) = attachments.add(attachment)
+
   val id = UUID.randomUUID().toString.replaceAll("-", "")
 
   val getSenderEmail = sender.contactEmail
@@ -31,6 +35,7 @@ case class Message
   val headers: Map[String, String] = Map("template_id" -> template
     , "${senderEmail}" -> sender.contactEmail
     , "${senderName}" -> sender.contactName
+    , "${entityName}" -> sender.entityName
     , "${senderImageUrl}" -> sender.imageUrl
     , "${recipientEmail}" -> recipient.contactEmail
     , "${title}" -> config.title
@@ -38,8 +43,9 @@ case class Message
     , "${entityName}" -> recipient.entityName
     , "${greeting}" -> defaults.greeting
     , "${procedure}" -> config.procedure
-    , "${callToAction}" -> config.procedure
+    , "${callToAction}" -> config.callToAction
     , "${fallBack}" -> config.fallBack
+    , "${trailingInfo}" -> config.trailingInfo
     , "${callBackUri}" -> s"${defaults.apiHome}/${servicePath}"
     , "${seeOnline}" -> defaults.seeOnline
     , "${sentByText}" -> defaults.sentByText
@@ -50,7 +56,7 @@ case class Message
     , "${unsubscribeUri}" -> s"${defaults.apiHome}/${defaults.unsubscribeService}"
     , "${ensure}" -> defaults.ensure
     , "${copyright}" -> defaults.copyright
-  )
+  ).filter(_._2.nonEmpty)
 
   val getBody = s"${defaults.apiHome}/static/template/${template}?logId=${id}"
 
