@@ -14,6 +14,6 @@ import scala.beans.BeanProperty
 case class ContactData
 (@BeanProperty contactEmail: String
  , @BeanProperty contactName: String
- , @BeanProperty entityName: String = ""
- , @BeanProperty imageUrl: String = ""
- , @BeanProperty address: String = "")
+ , @BeanProperty entityName: String = "&nbsp;"
+ , @BeanProperty imageUrl: String = "&nbsp;"
+ , @BeanProperty address: String = "&nbsp;")

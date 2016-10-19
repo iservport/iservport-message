@@ -35,7 +35,6 @@ case class Message
   val headers: Map[String, String] = Map("template_id" -> template
     , "${senderEmail}" -> sender.contactEmail
     , "${senderName}" -> sender.contactName
-    , "${entityName}" -> sender.entityName
     , "${senderImageUrl}" -> sender.imageUrl
     , "${recipientEmail}" -> recipient.contactEmail
     , "${title}" -> config.title
@@ -46,7 +45,7 @@ case class Message
     , "${callToAction}" -> config.callToAction
     , "${fallBack}" -> config.fallBack
     , "${trailingInfo}" -> config.trailingInfo
-    , "${callBackUri}" -> s"${defaults.apiHome}/${servicePath}"
+    , "${callBackUri}" -> s"${defaults.apiHome}${servicePath}/${id}"
     , "${seeOnline}" -> defaults.seeOnline
     , "${sentByText}" -> defaults.sentByText
     , "${senderAddress}" -> sender.address
@@ -58,7 +57,7 @@ case class Message
     , "${copyright}" -> defaults.copyright
   ).filter(_._2.nonEmpty)
 
-  val getBody = s"${defaults.apiHome}/static/template/${template}?logId=${id}"
+  val getBody = s"${defaults.apiHome}/redirect/${template}/${id}"
 
 }
 
