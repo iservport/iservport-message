@@ -24,10 +24,13 @@ case class Message
 , @BeanProperty defaults: MessageDefaults = MessageDefaults()
 , @BeanProperty id: String = UUID.randomUUID().toString.replaceAll("-", "")
 , @BeanProperty template: String = "4853b17b-e5f2-4b8f-b313-7067088fb3c5"
-, @BeanProperty attachments: java.util.List[MessageAttachment] = new java.util.ArrayList[MessageAttachment]()
+, @BeanProperty attachments: Option[List[MessageAttachment]] = None
 ) {
 
-  def add(attachment: MessageAttachment) = attachments.add(attachment)
+  def add(attachment: MessageAttachment): List[MessageAttachment] = attachments match {
+    case Some(list) => list.::(attachment)
+    case None => List(attachment)
+  }
 
 }
 
