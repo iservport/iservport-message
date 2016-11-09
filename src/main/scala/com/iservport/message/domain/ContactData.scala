@@ -16,4 +16,10 @@ case class ContactData
  , @BeanProperty contactName: String
  , @BeanProperty entityName: String = "&nbsp;"
  , @BeanProperty imageUrl: String = "&nbsp;"
- , @BeanProperty address: String = "&nbsp;")
+ , @BeanProperty address: String = "&nbsp;") {
+
+  def this() {
+    this("", "", "", "", "")
+  }
+
+}

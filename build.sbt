@@ -4,16 +4,18 @@ scalaVersion := "2.11.8"
 
 sbtVersion := "0.13.9"
 
+name := "iservport-message"
+
+version := "1.3.0.RELEASE"
+
 lazy val root = (project in file("."))
   .enablePlugins(JavaServerAppPackaging)
-  .settings(
-    name := "iservport-message",
-    version := "1.2.3.RELEASE",
-    libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest"   % "3.0.0"   % "test"
-    )
-  )
   .settings(commonSettings)
+
+libraryDependencies ++= Seq(
+  "org.projectlombok"  % "lombok"      % "1.16.8",
+  "org.scalatest"     %% "scalatest"   % "3.0.0"   % "test"
+)
 
 lazy val commonSettings = Seq(
   resolvers in ThisBuild ++= Seq(

@@ -16,4 +16,9 @@ case class MessageDefaults
  , @BeanProperty unsubscribeService: String = "unsubscribe"
  , @BeanProperty ensure: String = "&nbsp;"
  , @BeanProperty copyright: String = "&nbsp;"
-)
+) {
+
+  def this() {
+    this("", "", "", "", "", "", "", "", "", "")
+  }
+}
