@@ -6,7 +6,7 @@ sbtVersion := "0.13.9"
 
 name := "iservport-message"
 
-version := "1.3.1.RELEASE"
+version := "1.4.0.RELEASE"
 
 lazy val root = (project in file("."))
   .enablePlugins(JavaServerAppPackaging)
