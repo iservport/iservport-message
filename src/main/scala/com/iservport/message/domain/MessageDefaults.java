@@ -4,9 +4,9 @@ public class MessageDefaults {
 
     private String greeting = "Hello, ";
 
-    private String apiHome = "https://localhost:8443";
-
     private String seeOnline = "See on-line";
+
+    private String fallBack = "";
 
     private String sentByText = "Sent by ";
 
@@ -30,12 +30,12 @@ public class MessageDefaults {
         return this.greeting;
     }
 
-    public String getApiHome() {
-        return this.apiHome;
-    }
-
     public String getSeeOnline() {
         return this.seeOnline;
+    }
+
+    public String getFallBack() {
+        return this.fallBack;
     }
 
     public String getSentByText() {
@@ -70,12 +70,12 @@ public class MessageDefaults {
         this.greeting = greeting;
     }
 
-    public void setApiHome(String apiHome) {
-        this.apiHome = apiHome;
-    }
-
     public void setSeeOnline(String seeOnline) {
         this.seeOnline = seeOnline;
+    }
+
+    public void setFallBack(String fallBack) {
+        this.fallBack = fallBack;
     }
 
     public void setSentByText(String sentByText) {
@@ -114,12 +114,12 @@ public class MessageDefaults {
         final Object this$greeting = this.getGreeting();
         final Object other$greeting = other.getGreeting();
         if (this$greeting == null ? other$greeting != null : !this$greeting.equals(other$greeting)) return false;
-        final Object this$apiHome = this.getApiHome();
-        final Object other$apiHome = other.getApiHome();
-        if (this$apiHome == null ? other$apiHome != null : !this$apiHome.equals(other$apiHome)) return false;
         final Object this$seeOnline = this.getSeeOnline();
         final Object other$seeOnline = other.getSeeOnline();
         if (this$seeOnline == null ? other$seeOnline != null : !this$seeOnline.equals(other$seeOnline)) return false;
+        final Object this$fallBack = this.getFallBack();
+        final Object other$fallBack = other.getFallBack();
+        if (this$fallBack == null ? other$fallBack != null : !this$fallBack.equals(other$fallBack)) return false;
         final Object this$sentByText = this.getSentByText();
         final Object other$sentByText = other.getSentByText();
         if (this$sentByText == null ? other$sentByText != null : !this$sentByText.equals(other$sentByText))
@@ -154,10 +154,10 @@ public class MessageDefaults {
         int result = 1;
         final Object $greeting = this.getGreeting();
         result = result * PRIME + ($greeting == null ? 43 : $greeting.hashCode());
-        final Object $apiHome = this.getApiHome();
-        result = result * PRIME + ($apiHome == null ? 43 : $apiHome.hashCode());
         final Object $seeOnline = this.getSeeOnline();
         result = result * PRIME + ($seeOnline == null ? 43 : $seeOnline.hashCode());
+        final Object $fallBack = this.getFallBack();
+        result = result * PRIME + ($fallBack == null ? 43 : $fallBack.hashCode());
         final Object $sentByText = this.getSentByText();
         result = result * PRIME + ($sentByText == null ? 43 : $sentByText.hashCode());
         final Object $disclaimer = this.getDisclaimer();
@@ -180,6 +180,6 @@ public class MessageDefaults {
     }
 
     public String toString() {
-        return "com.iservport.message.domain.MessageDefaults(greeting=" + this.getGreeting() + ", apiHome=" + this.getApiHome() + ", seeOnline=" + this.getSeeOnline() + ", sentByText=" + this.getSentByText() + ", disclaimer=" + this.getDisclaimer() + ", unsubscribeText=" + this.getUnsubscribeText() + ", unsubscribeCaption=" + this.getUnsubscribeCaption() + ", unsubscribeService=" + this.getUnsubscribeService() + ", ensure=" + this.getEnsure() + ", copyright=" + this.getCopyright() + ")";
+        return "com.iservport.message.domain.MessageDefaults(greeting=" + this.getGreeting() + ", seeOnline=" + this.getSeeOnline() + ", fallBack=" + this.getFallBack() + ", sentByText=" + this.getSentByText() + ", disclaimer=" + this.getDisclaimer() + ", unsubscribeText=" + this.getUnsubscribeText() + ", unsubscribeCaption=" + this.getUnsubscribeCaption() + ", unsubscribeService=" + this.getUnsubscribeService() + ", ensure=" + this.getEnsure() + ", copyright=" + this.getCopyright() + ")";
     }
 }

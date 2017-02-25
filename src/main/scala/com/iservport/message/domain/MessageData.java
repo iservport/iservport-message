@@ -10,8 +10,6 @@ public class MessageData {
 
     private String callToAction = "";
 
-    private String fallBack = "";
-
     private String trailingInfo = "";
 
     public MessageData() {
@@ -33,10 +31,6 @@ public class MessageData {
         return this.callToAction;
     }
 
-    public String getFallBack() {
-        return this.fallBack;
-    }
-
     public String getTrailingInfo() {
         return this.trailingInfo;
     }
@@ -55,10 +49,6 @@ public class MessageData {
 
     public void setCallToAction(String callToAction) {
         this.callToAction = callToAction;
-    }
-
-    public void setFallBack(String fallBack) {
-        this.fallBack = fallBack;
     }
 
     public void setTrailingInfo(String trailingInfo) {
@@ -83,9 +73,6 @@ public class MessageData {
         final Object other$callToAction = other.getCallToAction();
         if (this$callToAction == null ? other$callToAction != null : !this$callToAction.equals(other$callToAction))
             return false;
-        final Object this$fallBack = this.getFallBack();
-        final Object other$fallBack = other.getFallBack();
-        if (this$fallBack == null ? other$fallBack != null : !this$fallBack.equals(other$fallBack)) return false;
         final Object this$trailingInfo = this.getTrailingInfo();
         final Object other$trailingInfo = other.getTrailingInfo();
         if (this$trailingInfo == null ? other$trailingInfo != null : !this$trailingInfo.equals(other$trailingInfo))
@@ -104,8 +91,6 @@ public class MessageData {
         result = result * PRIME + ($procedure == null ? 43 : $procedure.hashCode());
         final Object $callToAction = this.getCallToAction();
         result = result * PRIME + ($callToAction == null ? 43 : $callToAction.hashCode());
-        final Object $fallBack = this.getFallBack();
-        result = result * PRIME + ($fallBack == null ? 43 : $fallBack.hashCode());
         final Object $trailingInfo = this.getTrailingInfo();
         result = result * PRIME + ($trailingInfo == null ? 43 : $trailingInfo.hashCode());
         return result;
@@ -116,6 +101,6 @@ public class MessageData {
     }
 
     public String toString() {
-        return "com.iservport.message.domain.MessageData(subject=" + this.getSubject() + ", title=" + this.getTitle() + ", procedure=" + this.getProcedure() + ", callToAction=" + this.getCallToAction() + ", fallBack=" + this.getFallBack() + ", trailingInfo=" + this.getTrailingInfo() + ")";
+        return "com.iservport.message.domain.MessageData(subject=" + this.getSubject() + ", title=" + this.getTitle() + ", procedure=" + this.getProcedure() + ", callToAction=" + this.getCallToAction() + ", trailingInfo=" + this.getTrailingInfo() + ")";
     }
 }

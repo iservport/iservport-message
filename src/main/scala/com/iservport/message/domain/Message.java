@@ -13,6 +13,8 @@ public class Message {
 
     private String servicePath;
 
+    private String apiHome = "https://localhost:8443";
+
     private MessageData messageData = new MessageData();
 
     private MessageDefaults defaults = new MessageDefaults();
@@ -36,6 +38,10 @@ public class Message {
 
     public String getServicePath() {
         return this.servicePath;
+    }
+
+    public String getApiHome() {
+        return this.apiHome;
     }
 
     public MessageData getMessageData() {
@@ -70,6 +76,10 @@ public class Message {
         this.servicePath = servicePath;
     }
 
+    public void setApiHome(String apiHome) {
+        this.apiHome = apiHome;
+    }
+
     public void setMessageData(MessageData messageData) {
         this.messageData = messageData;
     }
@@ -100,8 +110,17 @@ public class Message {
         return this;
     }
 
+    public Message addresses(MessageAddresses addresses) {
+        return sender(addresses.getSender()).recipient(addresses.getRecipient());
+    }
+
     public Message servicePath(String servicePath) {
         this.servicePath = servicePath;
+        return this;
+    }
+
+    public Message apiHome(String apiHome) {
+        this.apiHome = apiHome;
         return this;
     }
 
@@ -141,6 +160,9 @@ public class Message {
         final Object other$servicePath = other.getServicePath();
         if (this$servicePath == null ? other$servicePath != null : !this$servicePath.equals(other$servicePath))
             return false;
+        final Object this$apiHome = this.getApiHome();
+        final Object other$apiHome = other.getApiHome();
+        if (this$apiHome == null ? other$apiHome != null : !this$apiHome.equals(other$apiHome)) return false;
         final Object this$messageData = this.getMessageData();
         final Object other$messageData = other.getMessageData();
         if (this$messageData == null ? other$messageData != null : !this$messageData.equals(other$messageData))
@@ -169,6 +191,8 @@ public class Message {
         result = result * PRIME + ($recipient == null ? 43 : $recipient.hashCode());
         final Object $servicePath = this.getServicePath();
         result = result * PRIME + ($servicePath == null ? 43 : $servicePath.hashCode());
+        final Object $apiHome = this.getApiHome();
+        result = result * PRIME + ($apiHome == null ? 43 : $apiHome.hashCode());
         final Object $messageData = this.getMessageData();
         result = result * PRIME + ($messageData == null ? 43 : $messageData.hashCode());
         final Object $defaults = this.getDefaults();
@@ -187,6 +211,6 @@ public class Message {
     }
 
     public String toString() {
-        return "com.iservport.message.domain.Message(sender=" + this.getSender() + ", recipient=" + this.getRecipient() + ", servicePath=" + this.getServicePath() + ", messageData=" + this.getMessageData() + ", defaults=" + this.getDefaults() + ", id=" + this.getId() + ", token=" + this.getToken() + ", template=" + this.getTemplate() + ")";
+        return "com.iservport.message.domain.Message(sender=" + this.getSender() + ", recipient=" + this.getRecipient() + ", servicePath=" + this.getServicePath() + ", apiHome=" + this.getApiHome() + ", messageData=" + this.getMessageData() + ", defaults=" + this.getDefaults() + ", id=" + this.getId() + ", token=" + this.getToken() + ", template=" + this.getTemplate() + ")";
     }
 }
