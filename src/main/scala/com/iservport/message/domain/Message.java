@@ -25,6 +25,8 @@ public class Message {
 
     private String template = "4853b17b-e5f2-4b8f-b313-7067088fb3c5";
 
+    private String contextLogo = "";
+
     public Message() {
     }
 
@@ -64,6 +66,10 @@ public class Message {
         return this.template;
     }
 
+    public String getContextLogo() {
+        return contextLogo;
+    }
+
     public void setSender(ContactData sender) {
         this.sender = sender;
     }
@@ -98,6 +104,10 @@ public class Message {
 
     public void setTemplate(String template) {
         this.template = template;
+    }
+
+    public void setContextLogo(String contextLogo) {
+        this.contextLogo = contextLogo;
     }
 
     public Message sender(ContactData sender) {
@@ -144,6 +154,10 @@ public class Message {
         return this;
     }
 
+    public Message contextLogo(String contextLogo) {
+        this.contextLogo = contextLogo;
+        return this;
+    }
 
     public boolean equals(Object o) {
         if (o == this) return true;

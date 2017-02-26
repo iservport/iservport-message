@@ -15,6 +15,16 @@ public class ContactData {
     public ContactData() {
     }
 
+    public ContactData(String contactEmail) {
+        this();
+        setContactEmail(contactEmail);
+    }
+
+    public ContactData(String contactEmail, String contactName) {
+        this(contactEmail);
+        setContactName(contactName);
+    }
+
     public String getContactEmail() {
         return this.contactEmail;
     }
@@ -53,6 +63,31 @@ public class ContactData {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public ContactData contactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+        return this;
+    }
+
+    public ContactData contactName(String contactName) {
+        this.contactName = contactName;
+        return this;
+    }
+
+    public ContactData entityName(String entityName) {
+        this.entityName = entityName;
+        return this;
+    }
+
+    public ContactData imageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public ContactData address(String address) {
+        this.address = address;
+        return this;
     }
 
     public boolean equals(Object o) {
