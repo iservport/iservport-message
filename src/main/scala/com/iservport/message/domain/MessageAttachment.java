@@ -55,6 +55,31 @@ public class MessageAttachment {
         this.content_id = content_id;
     }
 
+    public MessageAttachment content(String content) {
+        this.content = content;
+        return this;
+    }
+
+    public MessageAttachment filename(String filename) {
+        this.filename = filename;
+        return this;
+    }
+
+    public MessageAttachment type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public MessageAttachment disposition(String disposition) {
+        this.disposition = disposition;
+        return this;
+    }
+
+    public MessageAttachment content_id(String content_id) {
+        this.content_id = content_id;
+        return this;
+    }
+
     public boolean equals(Object o) {
         if (o == this) return true;
         if (!(o instanceof MessageAttachment)) return false;

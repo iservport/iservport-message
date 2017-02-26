@@ -25,7 +25,6 @@ public class MessageDefaults {
     public MessageDefaults() {
     }
 
-
     public String getGreeting() {
         return this.greeting;
     }
@@ -104,6 +103,56 @@ public class MessageDefaults {
 
     public void setCopyright(String copyright) {
         this.copyright = copyright;
+    }
+
+    public MessageDefaults greeting(String greeting) {
+        this.greeting = greeting;
+        return this;
+    }
+
+    public MessageDefaults seeOnline(String seeOnline) {
+        this.seeOnline = seeOnline;
+        return this;
+    }
+
+    public MessageDefaults fallBack(String fallBack) {
+        this.fallBack = fallBack;
+        return this;
+    }
+
+    public MessageDefaults sentByText(String sentByText) {
+        this.sentByText = sentByText;
+        return this;
+    }
+
+    public MessageDefaults disclaimer(String disclaimer) {
+        this.disclaimer = disclaimer;
+        return this;
+    }
+
+    public MessageDefaults unsubscribeText(String unsubscribeText) {
+        this.unsubscribeText = unsubscribeText;
+        return this;
+    }
+
+    public MessageDefaults unsubscribeCaption(String unsubscribeCaption) {
+        this.unsubscribeCaption = unsubscribeCaption;
+        return this;
+    }
+
+    public MessageDefaults unsubscribeService(String unsubscribeService) {
+        this.unsubscribeService = unsubscribeService;
+        return this;
+    }
+
+    public MessageDefaults ensure(String ensure) {
+        this.ensure = ensure;
+        return this;
+    }
+
+    public MessageDefaults copyright(String copyright) {
+        this.copyright = copyright;
+        return this;
     }
 
     public boolean equals(Object o) {

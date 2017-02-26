@@ -15,6 +15,11 @@ public class MessageData {
     public MessageData() {
     }
 
+    public MessageData(String subject) {
+        this();
+        setSubject(subject);
+    }
+
     public String getSubject() {
         return this.subject;
     }
@@ -53,6 +58,31 @@ public class MessageData {
 
     public void setTrailingInfo(String trailingInfo) {
         this.trailingInfo = trailingInfo;
+    }
+
+    public MessageData subject(String subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    public MessageData title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public MessageData procedure(String procedure) {
+        this.procedure = procedure;
+        return this;
+    }
+
+    public MessageData callToAction(String callToAction) {
+        this.callToAction = callToAction;
+        return this;
+    }
+
+    public MessageData trailingInfo(String trailingInfo) {
+        this.trailingInfo = trailingInfo;
+        return this;
     }
 
     public boolean equals(Object o) {
